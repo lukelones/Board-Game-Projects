@@ -27,7 +27,7 @@ bggUser = "shbones"
 userEmail = "luke.lones@gmail.com"
 
 r = praw.Reddit('BGG Wishlist Mention Tracker by /u/shbones v 1.1')
-already_done = []
+sent_already = []
 
 
 while True:
@@ -76,7 +76,7 @@ while True:
                 except smtplib.SMTPException:
                         print "Error: unable to send email"
                         break
-                already_done.append(submission.id)
+                sent_already.append(submission.id)
         print "Finished"
         time.sleep(1800)
     except AttributeError:

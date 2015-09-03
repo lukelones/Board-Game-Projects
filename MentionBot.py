@@ -37,7 +37,7 @@ while True:
     collection = bgg.collection(bggUser)
     try:
         games = collection.items
-    
+        print games
         for each_game in games:
             if each_game.wishlist == True:
                 wishlist.append(each_game.name.lower())
@@ -50,7 +50,7 @@ while True:
             post_text = submission.selftext.lower()
             post_title = submission.title.lower()
             has_game = any(string in (post_text + post_title) for string in wishlist)
-            if submission.id not in already_done and has_game:
+            if submission.id not in sent_already and has_game:
                 post_link = submission.short_link
                 
                 
